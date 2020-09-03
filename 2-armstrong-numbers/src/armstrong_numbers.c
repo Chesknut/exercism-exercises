@@ -13,24 +13,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-bool is_armstrong_number(int candidate) {
-    int candidateLength = floor(log10(abs(candidate))) + 1;
-    int digitRaised = 0;
-    int candidateSum = 0;
+bool is_armstrong_number(int candidate)
+{
+   int candidateLength = floor(log10(abs(candidate))) + 1;
+   int digitRaised = 0;
+   int candidateSum = 0;
 
-    while (candidate != 0) {
-        printf("candidateLength suck: %d\n", candidateLength);
-        printf("Help: %d\n", candidate % 10);
-        digitRaised = pow((candidate % 10), candidateLength);
-        candidateSum += digitRaised;
-        candidate /= 10;
-        printf("Candidate Sum: %d\n", candidateSum);
-    }
+   while(candidate != 0)
+   {
+      digitRaised = pow((candidate % 10), candidateLength);
+      candidateSum += digitRaised;
+      candidate /= 10;
+   }
 
-    if (candidateSum == candidate) {
-        return true;
-    }
-    else {
-        return false;
-    }
+   if(candidateSum == candidate)
+   {
+      return true;
+   }
+   else
+   {
+      return false;
+   }
 }
