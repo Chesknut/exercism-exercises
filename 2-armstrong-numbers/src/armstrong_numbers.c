@@ -1,11 +1,11 @@
 /*
-   1. Store length of candidate integer in var - check
+	1. Store length of candidate integer in var - check
 	2. While loop to iterate through digits of candidate integer (until digit == 0) - at each iteration: - check
 		a. Modulus to retrieve digit and raise that to length of candidate - check
-  	    b. Add this to sum var of previous result - check
+	    b. Add this to sum var of previous result - check
 	3. Check if sum var is == to int candidate (input) - check
 		a. if yes, return true - check
-  	    b. else, return false - check
+	    b. else, return false - check
 */
 
 #include "armstrong_numbers.h"
