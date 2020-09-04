@@ -1,5 +1,5 @@
 /*
-    1. Store length of candidate integer in var - check
+   1. Store length of candidate integer in var - check
 	2. While loop to iterate through digits of candidate integer (until digit == 0) - at each iteration: - check
 		a. Modulus to retrieve digit and raise that to length of candidate - check
   	    b. Add this to sum var of previous result - check
@@ -18,12 +18,13 @@ bool is_armstrong_number(int candidate)
    int candidateLength = floor(log10(abs(candidate))) + 1;
    int digitRaised = 0;
    int candidateSum = 0;
+   int candidateDigits = candidate;
 
-   while(candidate != 0)
+   while(candidateDigits > 0)
    {
-      digitRaised = pow((candidate % 10), candidateLength);
+      digitRaised = pow((candidateDigits % 10), candidateLength);
       candidateSum += digitRaised;
-      candidate /= 10;
+      candidateDigits /= 10;
    }
 
    if(candidateSum == candidate)
