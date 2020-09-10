@@ -23,9 +23,7 @@ char *abbreviate(const char *phrase) {
         return NULL;
 
     int phraseLength = strlen(phrase);
-    /* This is probably extremely bad practice but it fixes a bug that caused the previous acronym value from
-        the last function call to be preserved - ie. Expected GIMP would be FIFOGIMP (FIFO from prev. test case) */
-    char * acronym = malloc(sizeof(phraseLength)*100000000);
+    char * acronym = calloc(phraseLength+1, 1);
 
     append(acronym, toupper(phrase[0]));
 
