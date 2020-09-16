@@ -12,26 +12,30 @@
 #include <string.h>
 #include <ctype.h>
 
-void append(char* charArr, char character) {
-        int len = strlen(charArr);
-        charArr[len] = character;
-        charArr[len+1] = '\0';
+static void append(char *charArr, char character)
+{
+   int len = strlen(charArr);
+   charArr[len] = character;
+   charArr[len + 1] = '\0';
 }
 
-char *abbreviate(const char *phrase) {
-    if (phrase == NULL || phrase[0] == '\0')
-        return NULL;
+char *abbreviate(const char *phrase)
+{
+   if(phrase == NULL || phrase[0] == '\0')
+      return NULL;
 
-    int phraseLength = strlen(phrase);
-    char * acronym = calloc(phraseLength+1, 1);
+   int phraseLength = strlen(phrase);
+   char *acronym = calloc(phraseLength + 1, 1);
 
-    append(acronym, toupper(phrase[0]));
+   append(acronym, toupper(phrase[0]));
 
-    for (int i = 0; i < phraseLength; i++) {
-        if (phrase[i] == ' ' || phrase[i] == '-') {
-            append(acronym, toupper(phrase[i+1]));
-        }
-    }
+   for(int i = 0; i < phraseLength; i++)
+   {
+      if(phrase[i] == ' ' || phrase[i] == '-')
+      {
+         append(acronym, toupper(phrase[i + 1]));
+      }
+   }
 
-    return acronym;
+   return acronym;
 }
