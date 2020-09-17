@@ -13,13 +13,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct RomanNumeralKeyValues
+#define NUM_OF_ELEMENTS(a) (sizeof(a) / sizeof(a[0]))
+
+typedef struct
 {
    char *romanNumeralKey;
    unsigned int normalNumberVal;
-};
+} RomanNumeralKeyValues;
 
-struct RomanNumeralKeyValues romanNumeralArr[13] = {
+static const RomanNumeralKeyValues romanNumeralArr[] = {
    { "I", 1 },
    { "IV", 4 },
    { "V", 5 },
@@ -37,10 +39,9 @@ struct RomanNumeralKeyValues romanNumeralArr[13] = {
 
 char *to_roman_numeral(unsigned int number)
 {
-   // Set to 13 because max length of roman numeral conversion string is 13 (under 3000)
-   char *romanNumeralConversion = calloc(13, 1);
+   char *romanNumeralConversion = calloc(NUM_OF_ELEMENTS(romanNumeralArr), sizeof(char));
 
-   for(unsigned int i = 13; i-- > 0;)
+   for(unsigned int i = NUM_OF_ELEMENTS(romanNumeralArr); i-- > 0;)
    {
       while(romanNumeralArr[i].normalNumberVal <= number)
       {

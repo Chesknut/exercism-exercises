@@ -1,10 +1,10 @@
 /*
     1. Store length of phrase in var - check
     2. Create acronym character array (string) - check
-    2. For loop to iterate through each character in input phrase (until length) - at each iteration: - check
+    3. For loop to iterate through each character in input phrase (until length) - at each iteration: - check
 		a. Check if the iteration (character) is a space: - check
             i. Yes: Get the character after the space (i+1) and UPPER CASE and CONCATENATE it to the acronym
-	3. Return modified acronym variable - check
+	4. Return modified acronym variable - check
 */
 
 #include "acronym.h"
@@ -25,7 +25,7 @@ char *abbreviate(const char *phrase)
       return NULL;
 
    int phraseLength = strlen(phrase);
-   char *acronym = calloc(phraseLength + 1, 1);
+   char *acronym = calloc((phraseLength/2)+1, 1);
 
    append(acronym, toupper(phrase[0]));
 
